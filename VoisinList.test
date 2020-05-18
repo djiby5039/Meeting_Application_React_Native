@@ -1,0 +1,64 @@
+import React from 'react';
+import { 
+  StyleSheet,
+  View, 
+  Dimensions} from 'react-native';
+import { List, ListItem } from 'react-native-elements';
+
+var width = Dimensions.get('window').width; //full width
+var height = Dimensions.get('window').height; //full height
+
+
+const mesVoisins = [
+  {
+    id: 1,
+    name: 'Amy Farha',
+    image_url: 'https://i.pravatar.cc/200'
+  },
+  {
+    id: 2,
+    name: 'Chris Jackson',
+    image_url: 'https://i.pravatar.cc/200'
+  },
+  {
+    id: 3,
+    name: 'Sadio Mané',
+    image_url: 'https://i.pravatar.cc/200'
+  },
+  {
+    id: 4,
+    name: 'Youssou Ndour',
+    image_url: 'https://i.pravatar.cc/200'
+  },
+  {
+    id: 5,
+    name: 'Corona Virus',
+    image_url: 'https://i.pravatar.cc/200'
+  }
+]
+
+export class App extends React.Component {
+  render() {
+    return (
+        <List>
+          {
+            mesVoisins.map((v) => (
+              <ListItem
+                avatar={{uri:v.image_url}}
+                key={v.id}
+                title={v.name}
+              />
+            ))
+          }
+        </List>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+  },
+});
